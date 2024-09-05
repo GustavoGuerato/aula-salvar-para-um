@@ -1,5 +1,7 @@
 package com.devsuperior.aula.dto;
 
+import com.devsuperior.aula.entities.Person;
+
 public class PersonDepartmentDto {
     private Long id;
     private String name;
@@ -12,6 +14,13 @@ public class PersonDepartmentDto {
         this.name = name;
         this.salary = salary;
         this.departmentDto = departmentDto;
+    }
+
+    public PersonDepartmentDto(Person entity) {
+        this.id = entity.getId();
+        this.name = entity.getName();
+        this.salary = entity.getSalary();
+        this.departmentDto = new DepartmentDto(entity.getDepartment());
     }
 
     public Long getId() {
